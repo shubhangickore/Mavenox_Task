@@ -1,36 +1,42 @@
-import express from "express";
-import cors from "cors";
-
+// backend/server.js
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT || 5000;
 
-// Sample sliders
-const sliders = [
-  { id: 1, title: "Welcome to Mavenox", description: "Full-stack development made easy." },
-  { id: 2, title: "Innovation & AI", description: "Building smarter solutions every day." },
-  { id: 3, title: "Join Our Team", description: "Be part of our journey." },
-];
+app.use(cors({ origin: 'http://localhost:3000' })); // allow frontend dev
+app.use(express.json());
 
-// Sample blogs
-const blogs = [
-  { id: 1, title: "Latest Tech Trends", description: "Stay updated with new technologies." },
-  { id: 2, title: "AI in 2025", description: "How AI is changing the industry." },
-  { id: 3, title: "Full-Stack Guide", description: "Tips for becoming a full-stack developer." },
-];
+// Load data (simple JSON files)
+const slidersData = require('./data/sliders.json'); // array of 5 slider groups
+const blogsData = require('./data/blogs.json');     // array of blog items
 
-// Sample videos
-const videos = [
-  {
-    id: 1,
-    title: "DD.NYC Intro Video",
-    url: "https://www.youtube.com/embed/0s8-R3z7H1k", // sample video link
-  },
-];
+// GET sliders
+app.get('/api/sliders', (req, res) => {
+  res.json({ sliders: slidersData });
+});
 
-app.get("/api/sliders", (req, res) => res.json(sliders));
-app.get("/api/blogs", (req, res) => res.json(blogs));
-app.get("/api/videos", (req, res) => res.json(videos));
+// GET blogs
+app.get('/api/blogs', (req, res) => {
+  res.json({ blogs: blogsData });
+});
 
-app.listen(5000, () => {
-  console.log("Backend running on port 5000");
+// POST contact submissions
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+  console.log('Contact form submission:', { name, email, message });
+  // In production save to DB. For assignment, just reply success.
+  res.json({ success: true, message: 'Contact received' });
+});
+
+// Optional: Add a blog (admin)
+app.post('/api/blogs', (req, res) => {
+  const blog = req.body;
+  blogsData.unshift(blog); // push to memory array
+  res.status(201).json(blog);
+});
+
+app.listen(PORT, () => {
+  console.log(`Backend API running on http://localhost:${PORT}`);
 });
