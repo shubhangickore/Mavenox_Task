@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "Slider Group 1",
+    "items": [
+      { "id": "1-1", "title": "Slide 1A", "desc": "Description A", "image": "https://images.unsplash.com/photo-1503264116251-35a269479413?w=800" },
+      { "id": "1-2", "title": "Slide 1B", "desc": "Description B", "image": "https://tinyurl.com/mtyjub7m" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Slider Group 2",
+    "items": [
+      { "id": "2-1", "title": "This is slide 2A", "desc": "Desc", "image": "/images/slide2a.jpg" },
+      { "id": "2-2", "title": "this is Slide 2B", "desc": "Desc", "image": "/images/slide2b.jpg" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Slider Group 3",
+    "items": [
+      { "id": "3-1", "title": "Slide 3A", "desc": "Desc", "image": "/images/slide3a.jpg" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Slider Group 4",
+    "items": [
+      { "id": "4-1", "title": "Slide 4A", "desc": "Desc", "image": "/images/slide4a.jpg" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Slider Group 5",
+    "items": [
+      { "id": "5-1", "title": "Slide 5A", "desc": "Desc", "image": "/images/slide5a.jpg" }
+    ]
+  }
+]
