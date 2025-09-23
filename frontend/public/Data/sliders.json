@@ -11,8 +11,8 @@
     "id": 2,
     "title": "Slider Group 2",
     "items": [
-      { "id": "2-1", "title": "This is slide 2A", "desc": "Desc", "image": "/images/slide2a.jpg" },
-      { "id": "2-2", "title": "this is Slide 2B", "desc": "Desc", "image": "/images/slide2b.jpg" }
+      { "id": "2-1", "title": " slide 2A", "desc": "Desc", "image": "/images/slide2a.jpg" },
+      { "id": "2-2", "title": " Slide 2B", "desc": "Desc", "image": "/images/slide2b.jpg" }
     ]
   },
   {
